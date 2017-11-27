@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 1：配置securityManager -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="realm" ref="jdbcRealm"/>
+    </bean>
+
+    <!-- 2: cacheManager (缓存管理器) 
+    2.1: 需要加入ehcache的jar 包 及配置ehcache.xml -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"/>
+    </bean>
+
+  	<!-- 3：配置Realm 
+  	3.1：直接实现连org.apache.shiro.realm.Realm 接口的bean -->
+    <bean id="jdbcRealm" class="cn.sh.shiro.controller.ShiroRealm"> </bean>
+
+<!-- 4：配置lifecycleBeanPostProcessor，可以自动来调用配置在Spring IOC 容器中的shiro bean 	的生命周期方法 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!-- 5：启用IOC 容器中使用shiro de 注解，但必须在配置lifecycleBeanPostProcessor之后，才能使用。 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+    
+	<!--6： 配置shiroFilter 6.1： id必须和web.xml中一致 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login.jsp"/>
+        <property name="successUrl" value="/index.jsp"/>
+        <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
+        
+      <!-- 配置那些页面需要受保护以及访问页面需要的权限 anon 匿名访问 authc 必须认证后才能访问 -->
+        <property name="filterChainDefinitions">
+            <value>				
+                /login.jsp	= anon         
+                /user.jsp	= anon
+                
+                /** 			= 	authc 
+            </value>
+        </property>
+    </bean>
+</beans>
