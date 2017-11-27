@@ -42,7 +42,7 @@
                 /login.jsp	= anon         
                 /user.jsp	= anon
                 
-                /** 			= 	authc 
+                /** 			= 	authc
             </value>
         </property>
     </bean>
