@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.yi</groupId>
-	<artifactId>shiro</artifactId>
+	<groupId>cn.yi</groupId>
+	<artifactId>ssm</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -15,7 +15,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.3.12.RELEASE</version>
 		</dependency>
-		
+
 		<!-- Spring JDBC -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 		<dependency>
@@ -23,7 +23,7 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>4.3.12.RELEASE</version>
 		</dependency>
-		
+
 		<!-- Spring aspect 面向切面编程 -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
 		<dependency>
@@ -31,7 +31,7 @@
 			<artifactId>spring-aspects</artifactId>
 			<version>4.3.12.RELEASE</version>
 		</dependency>
-		
+
 		<!-- Mybatis -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
@@ -63,7 +63,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.41</version>
 		</dependency>
-		
+
 		<!-- 其它包[ jstl , servlet-api , junit ] -->
 		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
 		<dependency>
@@ -79,7 +79,7 @@
 			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -96,7 +96,7 @@
 			<version>4.3.12.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- 使用mybatis的逆向工程生成对应的bean及mapper -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
 		<dependency>
@@ -112,7 +112,7 @@
 			<artifactId>pagehelper</artifactId>
 			<version>5.1.2</version>
 		</dependency>
-		
+
 		<!-- 引入JSON解析 jackson包 -->
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
@@ -120,7 +120,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.0</version>
 		</dependency>
-		
+
 		<!-- 引入JSR303校验 jackson包 -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
 		<dependency>
@@ -128,6 +128,5 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.4.1.Final</version>
 		</dependency>
-
 	</dependencies>
 </project>

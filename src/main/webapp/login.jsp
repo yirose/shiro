@@ -8,5 +8,9 @@
 </head>
 <body>
 <h1>login page</h1>
+<form action="">
+<input>
+
+</form>
 </body>
 </html>

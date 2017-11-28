@@ -1,4 +1,4 @@
-package cn.sh.shiro.controller;
+package cn.sh.shiro.shiro;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
